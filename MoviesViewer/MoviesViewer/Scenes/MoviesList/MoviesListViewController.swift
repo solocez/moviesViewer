@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class MoviesListViewController: BaseMVVMViewController<MoviesListViewModel>, StoryboardMVVMInitializable {
+class MoviesListViewController: BaseMVVMViewController<MoviesListViewModel> {
   
   // MARK: Outlets
   

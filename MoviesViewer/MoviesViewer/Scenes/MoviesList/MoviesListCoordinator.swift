@@ -24,7 +24,7 @@ class MoviesListCoordinator: BaseMVVMCoordinator<MoviesListCoordinatorResult> {
   
   //
   override func start() -> Observable<CoordinationResult> {
-    let viewController = MoviesListViewController.initFromStoryboard(name: "MoviesList")
+    let viewController = MoviesListViewController()
     let navigationController = UINavigationController(rootViewController: viewController)
     
     let viewModel = MoviesListViewModel()

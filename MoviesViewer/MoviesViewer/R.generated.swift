@@ -18,16 +18,16 @@ struct R: Rswift.Validatable {
   
   /// This `R.storyboard` struct is generated, and contains static references to 3 storyboards.
   struct storyboard {
-    /// Storyboard `Main`.
-    static let main = _R.storyboard.main()
+    /// Storyboard `LaunchScreen`.
+    static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `MoviesList`.
     static let moviesList = _R.storyboard.moviesList()
     /// Storyboard `Wait`.
     static let wait = _R.storyboard.wait()
     
-    /// `UIStoryboard(name: "Main", bundle: ...)`
-    static func main(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.main)
+    /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
+    static func launchScreen(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.launchScreen)
     }
     
     /// `UIStoryboard(name: "MoviesList", bundle: ...)`
@@ -130,16 +130,16 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      try main.validate()
+      try launchScreen.validate()
       try moviesList.validate()
       try wait.validate()
     }
     
-    struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = ViewController
+    struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = UIKit.UIViewController
       
       let bundle = R.hostingBundle
-      let name = "Main"
+      let name = "LaunchScreen"
       
       static func validate() throws {
         if #available(iOS 11.0, *) {
