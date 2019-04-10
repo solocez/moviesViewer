@@ -1,0 +1,18 @@
+/* 
+  Loc.strings
+  MoviesViewer
+
+  Created by Zakhar Sukhanov on 2019-04-10.
+  Copyright © 2019 solocez. All rights reserved.
+*/
+
+"error" = "Error";
+"unknown" = "Unknown";
+"alert" = "Alert";
+"ok" = "Ok";
+"done" = "Done";
+"cancel" = "Cancel";
+
+
+"downloading.items" = "Downloading items";
+"enter.title.here" = "Enter Title here";
