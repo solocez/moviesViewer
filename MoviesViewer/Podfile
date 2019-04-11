@@ -9,6 +9,7 @@ def common_pods
   pod 'RxSwift', '4.3.1'
   pod 'RxCocoa', '4.3.1'
   pod 'RxGesture', '2.0.1'
+  pod 'RxDataSources', '3.1.0'
   pod 'Action', '3.8.0'
   pod 'Alamofire', '4.7.3'
   pod 'AlamofireImage', '3.4.1'

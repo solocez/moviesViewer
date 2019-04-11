@@ -2,9 +2,9 @@
 //  Settings.swift
 
 import Foundation
-//import XCGLogger
+import XCGLogger
 
-extension Settings: AppManagersConsumer { }
 struct Settings : BaseSettings {
-  //var logLevel: XCGLogger.Level = .debug
+    var logLevel: XCGLogger.Level = .debug
 }
+

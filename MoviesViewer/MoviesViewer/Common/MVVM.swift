@@ -7,6 +7,5 @@ import RxSwift
 import RxCocoa
 
 class BaseViewModel {
-  internal let bag = DisposeBag()
+    internal let bag = DisposeBag()
 }
-
