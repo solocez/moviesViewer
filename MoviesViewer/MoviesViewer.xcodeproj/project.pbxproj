@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0778F0E7225E023E00820327 /* Wait.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0778F0CE225E023E00820327 /* Wait.storyboard */; };
 		0778F0E8225E023E00820327 /* WaitPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F0CF225E023E00820327 /* WaitPresenter.swift */; };
 		0778F0E9225E023E00820327 /* WaitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F0D0225E023E00820327 /* WaitViewController.swift */; };
 		0778F0EA225E023E00820327 /* OverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F0D1225E023E00820327 /* OverlayViewController.swift */; };
@@ -21,7 +20,7 @@
 		0778F0F2225E023E00820327 /* BaseMVVMTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F0DB225E023E00820327 /* BaseMVVMTabViewController.swift */; };
 		0778F0F4225E023E00820327 /* XCGLogger+mv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F0DE225E023E00820327 /* XCGLogger+mv.swift */; };
 		0778F0F5225E023E00820327 /* UIResponder+cl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F0DF225E023E00820327 /* UIResponder+cl.swift */; };
-		0778F0F6225E023E00820327 /* UIApplication+cl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F0E0225E023E00820327 /* UIApplication+cl.swift */; };
+		0778F0F6225E023E00820327 /* UIApplication+mv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F0E0225E023E00820327 /* UIApplication+mv.swift */; };
 		0778F0F8225E023E00820327 /* UIViewController+cl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F0E2225E023E00820327 /* UIViewController+cl.swift */; };
 		0778F0F9225E023E00820327 /* BaseSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F0E4225E023E00820327 /* BaseSettings.swift */; };
 		0778F0FA225E023E00820327 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F0E6225E023E00820327 /* Settings.swift */; };
@@ -37,6 +36,9 @@
 		0778F11D225E232200820327 /* RESTManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F11C225E232200820327 /* RESTManager.swift */; };
 		0778F11F225E2D5200820327 /* URL+mv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F11E225E2D5200820327 /* URL+mv.swift */; };
 		0778F121225E2E5A00820327 /* MoviesViewerXCTestCaseBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F120225E2E5900820327 /* MoviesViewerXCTestCaseBase.swift */; };
+		07B3E804225F43520038C577 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B3E803225F43520038C577 /* MovieCell.swift */; };
+		07B3E806225F52540038C577 /* Wait.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07B3E805225F52540038C577 /* Wait.storyboard */; };
+		07B3E808226066640038C577 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B3E807226066640038C577 /* StorageManager.swift */; };
 		07D851A2225DF86B003709E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D851A1225DF86B003709E8 /* AppDelegate.swift */; };
 		07D851A9225DF86D003709E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07D851A8225DF86D003709E8 /* Assets.xcassets */; };
 		07D851B7225DF86D003709E8 /* MoviesViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D851B6225DF86D003709E8 /* MoviesViewerTests.swift */; };
@@ -55,7 +57,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0778F0CE225E023E00820327 /* Wait.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Wait.storyboard; sourceTree = "<group>"; };
 		0778F0CF225E023E00820327 /* WaitPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitPresenter.swift; sourceTree = "<group>"; };
 		0778F0D0225E023E00820327 /* WaitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitViewController.swift; sourceTree = "<group>"; };
 		0778F0D1225E023E00820327 /* OverlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayViewController.swift; sourceTree = "<group>"; };
@@ -69,7 +70,7 @@
 		0778F0DB225E023E00820327 /* BaseMVVMTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMVVMTabViewController.swift; sourceTree = "<group>"; };
 		0778F0DE225E023E00820327 /* XCGLogger+mv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCGLogger+mv.swift"; sourceTree = "<group>"; };
 		0778F0DF225E023E00820327 /* UIResponder+cl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIResponder+cl.swift"; sourceTree = "<group>"; };
-		0778F0E0225E023E00820327 /* UIApplication+cl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+cl.swift"; sourceTree = "<group>"; };
+		0778F0E0225E023E00820327 /* UIApplication+mv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+mv.swift"; sourceTree = "<group>"; };
 		0778F0E2225E023E00820327 /* UIViewController+cl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+cl.swift"; sourceTree = "<group>"; };
 		0778F0E4225E023E00820327 /* BaseSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSettings.swift; sourceTree = "<group>"; };
 		0778F0E6225E023E00820327 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -85,6 +86,9 @@
 		0778F11C225E232200820327 /* RESTManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTManager.swift; sourceTree = "<group>"; };
 		0778F11E225E2D5200820327 /* URL+mv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+mv.swift"; sourceTree = "<group>"; };
 		0778F120225E2E5900820327 /* MoviesViewerXCTestCaseBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesViewerXCTestCaseBase.swift; sourceTree = "<group>"; };
+		07B3E803225F43520038C577 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		07B3E805225F52540038C577 /* Wait.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Wait.storyboard; sourceTree = "<group>"; };
+		07B3E807226066640038C577 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		07D8519E225DF86B003709E8 /* MoviesViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07D851A1225DF86B003709E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07D851A8225DF86D003709E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -145,7 +149,7 @@
 		0778F0CD225E023E00820327 /* Wait */ = {
 			isa = PBXGroup;
 			children = (
-				0778F0CE225E023E00820327 /* Wait.storyboard */,
+				07B3E805225F52540038C577 /* Wait.storyboard */,
 				0778F0CF225E023E00820327 /* WaitPresenter.swift */,
 				0778F0D0225E023E00820327 /* WaitViewController.swift */,
 			);
@@ -177,7 +181,7 @@
 				0778F0DE225E023E00820327 /* XCGLogger+mv.swift */,
 				0778F11E225E2D5200820327 /* URL+mv.swift */,
 				0778F0DF225E023E00820327 /* UIResponder+cl.swift */,
-				0778F0E0225E023E00820327 /* UIApplication+cl.swift */,
+				0778F0E0225E023E00820327 /* UIApplication+mv.swift */,
 				0778F0E2225E023E00820327 /* UIViewController+cl.swift */,
 			);
 			path = Extensions;
@@ -204,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				0778F11C225E232200820327 /* RESTManager.swift */,
+				07B3E807226066640038C577 /* StorageManager.swift */,
 				0778F100225E1B2700820327 /* AppManagers.swift */,
 				0778F101225E1B2700820327 /* AppManagersConsumer.swift */,
 			);
@@ -231,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				0778F112225E1CC700820327 /* MoviesListCoordinator.swift */,
+				07B3E803225F43520038C577 /* MovieCell.swift */,
 				0778F114225E1CC700820327 /* MoviesListViewController.swift */,
 				0778F115225E1CC700820327 /* MoviesListViewModel.swift */,
 			);
@@ -393,7 +399,7 @@
 				07D851A9225DF86D003709E8 /* Assets.xcassets in Resources */,
 				0778F108225E1BD500820327 /* Loc.strings in Resources */,
 				0778F11B225E211C00820327 /* LaunchScreen.storyboard in Resources */,
-				0778F0E7225E023E00820327 /* Wait.storyboard in Resources */,
+				07B3E806225F52540038C577 /* Wait.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,7 +427,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$SRCROOT/$PROJECT_NAME/R.generated.swift",
+				$SRCROOT/$PROJECT_NAME/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -480,15 +486,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MoviesViewer/Pods-MoviesViewer-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Action/Action.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
-				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
-				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
@@ -497,15 +500,12 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Action.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjcExceptionBridging.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
@@ -527,8 +527,9 @@
 				0778F106225E1BA600820327 /* R.generated.swift in Sources */,
 				0778F0EC225E023E00820327 /* MVVM.swift in Sources */,
 				0778F0F8225E023E00820327 /* UIViewController+cl.swift in Sources */,
+				07B3E808226066640038C577 /* StorageManager.swift in Sources */,
 				0778F0E8225E023E00820327 /* WaitPresenter.swift in Sources */,
-				0778F0F6225E023E00820327 /* UIApplication+cl.swift in Sources */,
+				0778F0F6225E023E00820327 /* UIApplication+mv.swift in Sources */,
 				0778F103225E1B2700820327 /* AppManagersConsumer.swift in Sources */,
 				0778F0EA225E023E00820327 /* OverlayViewController.swift in Sources */,
 				0778F0ED225E023E00820327 /* AppError.swift in Sources */,
@@ -536,6 +537,7 @@
 				0778F118225E1CC700820327 /* MoviesListViewController.swift in Sources */,
 				0778F0F1225E023E00820327 /* BaseMVVMCoordinator.swift in Sources */,
 				0778F0EF225E023E00820327 /* BaseMVVMViewController.swift in Sources */,
+				07B3E804225F43520038C577 /* MovieCell.swift in Sources */,
 				0778F116225E1CC700820327 /* MoviesListCoordinator.swift in Sources */,
 				0778F0EB225E023E00820327 /* CustomBaseControl.swift in Sources */,
 				0778F11F225E2D5200820327 /* URL+mv.swift in Sources */,

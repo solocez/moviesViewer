@@ -6,13 +6,13 @@ import Foundation
 //
 protocol AppManagers: class {
     var rest: RESTManager { get }
-    //  var imgCache: ImageCache { get }
+    var storage: Storage { get }
 }
 
 //
 class AppManagersImpl: AppManagers {
-    fileprivate lazy var _rest: RESTManager = RESTManagerImpl()
-    //  fileprivate lazy var _imgCache: ImageCache = ImageCacheImpl()
+    private lazy var _rest: RESTManager = RESTManagerImpl()
+    private lazy var _storage: Storage = StorageImpl()
     
     var rest: RESTManager {
         get {
@@ -20,10 +20,9 @@ class AppManagersImpl: AppManagers {
         }
     }
     
-    //  var imgCache: ImageCache {
-    //    get {
-    //      return _imgCache
-    //    }
-    //  }
+    var storage: Storage {
+        get {
+            return _storage
+        }
+    }
 }
-

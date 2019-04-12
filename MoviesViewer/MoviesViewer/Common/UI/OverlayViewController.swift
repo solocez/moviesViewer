@@ -1,10 +1,5 @@
 //
 //  OverlayViewController.swift
-//  CountryList
-//
-//  Created by Zakhar Sukhanov on 2019-01-03.
-//  Copyright © 2019 Mokkatto. All rights reserved.
-//
 
 import UIKit
 

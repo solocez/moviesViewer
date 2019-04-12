@@ -19,11 +19,14 @@ struct Movies: Decodable {
 
 //
 struct Movie: Decodable {
+    let id: Int
     let title: String
     let posterPath: String
     let overview: String
+    var posterImage: Data?
     
     enum CodingKeys : String, CodingKey {
+        case id
         case title
         case posterPath = "poster_path"
         case overview

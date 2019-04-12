@@ -10,9 +10,11 @@ import RxSwift
 import RxCocoa
 import SnapKit
 
-class MoviesListViewController: BaseMVVMViewController<MoviesListViewModel>, UICollectionViewDataSource {
+class MoviesListViewController: BaseMVVMViewController<MoviesListViewModel>
+        , UICollectionViewDataSource, UICollectionViewDataSourcePrefetching {
     
     private var collectionView: UICollectionView!
+    private var indicatorView: UIActivityIndicatorView!
     
     // MARK: Object lifecycle
     
@@ -20,11 +22,43 @@ class MoviesListViewController: BaseMVVMViewController<MoviesListViewModel>, UIC
     
     //
     override func setupUI() {
+        view.backgroundColor = UIColor.gray
+        setupMoviesCollection()
+        setupActivityIndicator()
+        startActivity()
+    }
+    
+    //
+    override func setupBindings() {
+        viewModel.output.reloadData
+            .asObservable()
+            .take(1)
+            .subscribe(onNext: { [unowned self] (_) in
+                self.stopActivity()
+            }).disposed(by: bag)
+        
+        viewModel.output.reloadData.drive(onNext: { [unowned self] indexesToReload in
+            let tmp = indexesToReload.map { IndexPath(row: $0, section: 0) }
+            self.collectionView.reloadItems(at: self.cellsToReload(intersecting: tmp))
+        }).disposed(by: bag)
+        
+        viewModel.input.fetchMovies.onNext([])
+    }
+    
+    //
+    private func setupMoviesCollection() {
+        let width = UIScreen.main.bounds.width
+        let height = UIScreen.main.bounds.height
+        
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 100, height: 100)
+        layout.itemSize = CGSize(width: width / 2 - 10 , height: height / 3 - 10)
         layout.scrollDirection = .vertical
+        //layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = UIColor.yellow
         collectionView.dataSource = self
+        collectionView.prefetchDataSource = self
+        collectionView.register(MovieCell.self, forCellWithReuseIdentifier: MovieCell.kMovieCellID)
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { (make) in
             make.leading.trailing.top.bottom.equalToSuperview()
@@ -32,28 +66,54 @@ class MoviesListViewController: BaseMVVMViewController<MoviesListViewModel>, UIC
     }
     
     //
-    override func setupBindings() {
-        //viewModel.output.movies.drive(collectionView.rx.items)
-        viewModel.output.movies.asObservable()
-            .bind(to: collectionView.rx.items) { (collectionView, row, element) in
-                let indexPath = IndexPath(row: row, section: 0)
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! UICollectionViewCell
-                //cell.value?.text = "\(element) @ \(row)"
-                return cell
-            }
-            .disposed(by: bag)
-        
+    private func setupActivityIndicator() {
+        indicatorView = UIActivityIndicatorView(style: .whiteLarge)
+        indicatorView.center = view.center
+        view.addSubview(indicatorView)
+    }
+    
+    //
+    private func startActivity() {
+        collectionView.isHidden = true
+        indicatorView.startAnimating()
+    }
+    
+    //
+    private func stopActivity() {
+        indicatorView.stopAnimating()
+        collectionView.isHidden = false
+        collectionView.reloadData()
+    }
+    
+    //
+    private func cellsToReload(intersecting indexPaths: [IndexPath]) -> [IndexPath] {
+        let ipVisibleCells = collectionView.indexPathsForVisibleItems
+        return Array(Set(ipVisibleCells).intersection(indexPaths))
     }
 }
 
-//
-extension MoviesListViewController { // UICollectionViewDataSource
+// UICollectionViewDataSource
+extension MoviesListViewController {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return viewModel.output.moviesTotal
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell(frame: .zero)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCell.kMovieCellID, for: indexPath) as! MovieCell
+        cell.setup(movie: viewModel.output.movieBy(index: indexPath.row))
+        return cell
     }
 
+}
+
+// UICollectionViewDataSourcePrefetching
+extension MoviesListViewController {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        let indexes = indexPaths.map { $0.row }
+        viewModel.input.fetchMovies.onNext(indexes)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
+        
+    }
 }

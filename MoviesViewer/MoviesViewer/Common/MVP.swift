@@ -1,9 +1,5 @@
 //
 //  MVP.swift
-//
-//  Created by Zakhar Sukhanov on 2018-12-17.
-//  Copyright © 2018 Sukhanov, Zakhar (MGCS). All rights reserved.
-//
 
 import UIKit
 import RxSwift
