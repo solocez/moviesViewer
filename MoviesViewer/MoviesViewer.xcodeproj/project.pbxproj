@@ -7,21 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0778F0E8225E023E00820327 /* WaitPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F0CF225E023E00820327 /* WaitPresenter.swift */; };
-		0778F0E9225E023E00820327 /* WaitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F0D0225E023E00820327 /* WaitViewController.swift */; };
-		0778F0EA225E023E00820327 /* OverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F0D1225E023E00820327 /* OverlayViewController.swift */; };
-		0778F0EB225E023E00820327 /* CustomBaseControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F0D3225E023E00820327 /* CustomBaseControl.swift */; };
 		0778F0EC225E023E00820327 /* MVVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F0D4225E023E00820327 /* MVVM.swift */; };
 		0778F0ED225E023E00820327 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F0D5225E023E00820327 /* AppError.swift */; };
-		0778F0EE225E023E00820327 /* MVP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F0D6225E023E00820327 /* MVP.swift */; };
 		0778F0EF225E023E00820327 /* BaseMVVMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F0D8225E023E00820327 /* BaseMVVMViewController.swift */; };
 		0778F0F0225E023E00820327 /* BaseMVVMViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F0D9225E023E00820327 /* BaseMVVMViewModel.swift */; };
 		0778F0F1225E023E00820327 /* BaseMVVMCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F0DA225E023E00820327 /* BaseMVVMCoordinator.swift */; };
 		0778F0F2225E023E00820327 /* BaseMVVMTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F0DB225E023E00820327 /* BaseMVVMTabViewController.swift */; };
 		0778F0F4225E023E00820327 /* XCGLogger+mv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F0DE225E023E00820327 /* XCGLogger+mv.swift */; };
-		0778F0F5225E023E00820327 /* UIResponder+cl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F0DF225E023E00820327 /* UIResponder+cl.swift */; };
-		0778F0F6225E023E00820327 /* UIApplication+mv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F0E0225E023E00820327 /* UIApplication+mv.swift */; };
-		0778F0F8225E023E00820327 /* UIViewController+cl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F0E2225E023E00820327 /* UIViewController+cl.swift */; };
 		0778F0F9225E023E00820327 /* BaseSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F0E4225E023E00820327 /* BaseSettings.swift */; };
 		0778F0FA225E023E00820327 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F0E6225E023E00820327 /* Settings.swift */; };
 		0778F0FF225E13AF00820327 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F0FE225E13AF00820327 /* AppCoordinator.swift */; };
@@ -37,7 +29,6 @@
 		0778F11F225E2D5200820327 /* URL+mv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F11E225E2D5200820327 /* URL+mv.swift */; };
 		0778F121225E2E5A00820327 /* MoviesViewerXCTestCaseBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F120225E2E5900820327 /* MoviesViewerXCTestCaseBase.swift */; };
 		07B3E804225F43520038C577 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B3E803225F43520038C577 /* MovieCell.swift */; };
-		07B3E806225F52540038C577 /* Wait.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07B3E805225F52540038C577 /* Wait.storyboard */; };
 		07B3E808226066640038C577 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B3E807226066640038C577 /* StorageManager.swift */; };
 		07D851A2225DF86B003709E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D851A1225DF86B003709E8 /* AppDelegate.swift */; };
 		07D851A9225DF86D003709E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07D851A8225DF86D003709E8 /* Assets.xcassets */; };
@@ -57,21 +48,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0778F0CF225E023E00820327 /* WaitPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitPresenter.swift; sourceTree = "<group>"; };
-		0778F0D0225E023E00820327 /* WaitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitViewController.swift; sourceTree = "<group>"; };
-		0778F0D1225E023E00820327 /* OverlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayViewController.swift; sourceTree = "<group>"; };
-		0778F0D3225E023E00820327 /* CustomBaseControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBaseControl.swift; sourceTree = "<group>"; };
 		0778F0D4225E023E00820327 /* MVVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVVM.swift; sourceTree = "<group>"; };
 		0778F0D5225E023E00820327 /* AppError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
-		0778F0D6225E023E00820327 /* MVP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVP.swift; sourceTree = "<group>"; };
 		0778F0D8225E023E00820327 /* BaseMVVMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMVVMViewController.swift; sourceTree = "<group>"; };
 		0778F0D9225E023E00820327 /* BaseMVVMViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMVVMViewModel.swift; sourceTree = "<group>"; };
 		0778F0DA225E023E00820327 /* BaseMVVMCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMVVMCoordinator.swift; sourceTree = "<group>"; };
 		0778F0DB225E023E00820327 /* BaseMVVMTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMVVMTabViewController.swift; sourceTree = "<group>"; };
 		0778F0DE225E023E00820327 /* XCGLogger+mv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCGLogger+mv.swift"; sourceTree = "<group>"; };
-		0778F0DF225E023E00820327 /* UIResponder+cl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIResponder+cl.swift"; sourceTree = "<group>"; };
-		0778F0E0225E023E00820327 /* UIApplication+mv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+mv.swift"; sourceTree = "<group>"; };
-		0778F0E2225E023E00820327 /* UIViewController+cl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+cl.swift"; sourceTree = "<group>"; };
 		0778F0E4225E023E00820327 /* BaseSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSettings.swift; sourceTree = "<group>"; };
 		0778F0E6225E023E00820327 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		0778F0FE225E13AF00820327 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -87,7 +70,6 @@
 		0778F11E225E2D5200820327 /* URL+mv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+mv.swift"; sourceTree = "<group>"; };
 		0778F120225E2E5900820327 /* MoviesViewerXCTestCaseBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesViewerXCTestCaseBase.swift; sourceTree = "<group>"; };
 		07B3E803225F43520038C577 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
-		07B3E805225F52540038C577 /* Wait.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Wait.storyboard; sourceTree = "<group>"; };
 		07B3E807226066640038C577 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		07D8519E225DF86B003709E8 /* MoviesViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07D851A1225DF86B003709E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -127,41 +109,11 @@
 		0778F0CB225E023E00820327 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				0778F0CC225E023E00820327 /* UI */,
 				0778F0D4225E023E00820327 /* MVVM.swift */,
 				0778F0D5225E023E00820327 /* AppError.swift */,
-				0778F0D6225E023E00820327 /* MVP.swift */,
 				0778F0D7225E023E00820327 /* MVVM */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		0778F0CC225E023E00820327 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				0778F0CD225E023E00820327 /* Wait */,
-				0778F0D1225E023E00820327 /* OverlayViewController.swift */,
-				0778F0D2225E023E00820327 /* Controls */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		0778F0CD225E023E00820327 /* Wait */ = {
-			isa = PBXGroup;
-			children = (
-				07B3E805225F52540038C577 /* Wait.storyboard */,
-				0778F0CF225E023E00820327 /* WaitPresenter.swift */,
-				0778F0D0225E023E00820327 /* WaitViewController.swift */,
-			);
-			path = Wait;
-			sourceTree = "<group>";
-		};
-		0778F0D2225E023E00820327 /* Controls */ = {
-			isa = PBXGroup;
-			children = (
-				0778F0D3225E023E00820327 /* CustomBaseControl.swift */,
-			);
-			path = Controls;
 			sourceTree = "<group>";
 		};
 		0778F0D7225E023E00820327 /* MVVM */ = {
@@ -180,9 +132,6 @@
 			children = (
 				0778F0DE225E023E00820327 /* XCGLogger+mv.swift */,
 				0778F11E225E2D5200820327 /* URL+mv.swift */,
-				0778F0DF225E023E00820327 /* UIResponder+cl.swift */,
-				0778F0E0225E023E00820327 /* UIApplication+mv.swift */,
-				0778F0E2225E023E00820327 /* UIViewController+cl.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -399,7 +348,6 @@
 				07D851A9225DF86D003709E8 /* Assets.xcassets in Resources */,
 				0778F108225E1BD500820327 /* Loc.strings in Resources */,
 				0778F11B225E211C00820327 /* LaunchScreen.storyboard in Resources */,
-				07B3E806225F52540038C577 /* Wait.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,12 +474,8 @@
 				0778F0F4225E023E00820327 /* XCGLogger+mv.swift in Sources */,
 				0778F106225E1BA600820327 /* R.generated.swift in Sources */,
 				0778F0EC225E023E00820327 /* MVVM.swift in Sources */,
-				0778F0F8225E023E00820327 /* UIViewController+cl.swift in Sources */,
 				07B3E808226066640038C577 /* StorageManager.swift in Sources */,
-				0778F0E8225E023E00820327 /* WaitPresenter.swift in Sources */,
-				0778F0F6225E023E00820327 /* UIApplication+mv.swift in Sources */,
 				0778F103225E1B2700820327 /* AppManagersConsumer.swift in Sources */,
-				0778F0EA225E023E00820327 /* OverlayViewController.swift in Sources */,
 				0778F0ED225E023E00820327 /* AppError.swift in Sources */,
 				0778F119225E1CC700820327 /* MoviesListViewModel.swift in Sources */,
 				0778F118225E1CC700820327 /* MoviesListViewController.swift in Sources */,
@@ -539,15 +483,11 @@
 				0778F0EF225E023E00820327 /* BaseMVVMViewController.swift in Sources */,
 				07B3E804225F43520038C577 /* MovieCell.swift in Sources */,
 				0778F116225E1CC700820327 /* MoviesListCoordinator.swift in Sources */,
-				0778F0EB225E023E00820327 /* CustomBaseControl.swift in Sources */,
 				0778F11F225E2D5200820327 /* URL+mv.swift in Sources */,
-				0778F0F5225E023E00820327 /* UIResponder+cl.swift in Sources */,
 				0778F0F2225E023E00820327 /* BaseMVVMTabViewController.swift in Sources */,
 				0778F0F9225E023E00820327 /* BaseSettings.swift in Sources */,
 				07D851A2225DF86B003709E8 /* AppDelegate.swift in Sources */,
-				0778F0EE225E023E00820327 /* MVP.swift in Sources */,
 				0778F11D225E232200820327 /* RESTManager.swift in Sources */,
-				0778F0E9225E023E00820327 /* WaitViewController.swift in Sources */,
 				0778F102225E1B2700820327 /* AppManagers.swift in Sources */,
 				0778F0FA225E023E00820327 /* Settings.swift in Sources */,
 				0778F0F0225E023E00820327 /* BaseMVVMViewModel.swift in Sources */,

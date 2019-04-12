@@ -16,21 +16,14 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 2 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 1 storyboards.
   struct storyboard {
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
-    /// Storyboard `Wait`.
-    static let wait = _R.storyboard.wait()
     
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
     static func launchScreen(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.launchScreen)
-    }
-    
-    /// `UIStoryboard(name: "Wait", bundle: ...)`
-    static func wait(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.wait)
     }
     
     fileprivate init() {}
@@ -124,7 +117,6 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       try launchScreen.validate()
-      try wait.validate()
     }
     
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
@@ -136,24 +128,6 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if #available(iOS 11.0, *) {
         }
-      }
-      
-      fileprivate init() {}
-    }
-    
-    struct wait: Rswift.StoryboardResourceType, Rswift.Validatable {
-      let bundle = R.hostingBundle
-      let name = "Wait"
-      let waitViewController = StoryboardViewControllerResource<WaitViewController>(identifier: "WaitViewController")
-      
-      func waitViewController(_: Void = ()) -> WaitViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: waitViewController)
-      }
-      
-      static func validate() throws {
-        if #available(iOS 11.0, *) {
-        }
-        if _R.storyboard.wait().waitViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'waitViewController' could not be loaded from storyboard 'Wait' as 'WaitViewController'.") }
       }
       
       fileprivate init() {}
