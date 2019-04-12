@@ -30,6 +30,7 @@
 		0778F121225E2E5A00820327 /* MoviesViewerXCTestCaseBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0778F120225E2E5900820327 /* MoviesViewerXCTestCaseBase.swift */; };
 		07B3E804225F43520038C577 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B3E803225F43520038C577 /* MovieCell.swift */; };
 		07B3E808226066640038C577 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B3E807226066640038C577 /* StorageManager.swift */; };
+		07B3E80A226073E80038C577 /* UIViewController+mv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B3E809226073E80038C577 /* UIViewController+mv.swift */; };
 		07D851A2225DF86B003709E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D851A1225DF86B003709E8 /* AppDelegate.swift */; };
 		07D851A9225DF86D003709E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07D851A8225DF86D003709E8 /* Assets.xcassets */; };
 		07D851B7225DF86D003709E8 /* MoviesViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D851B6225DF86D003709E8 /* MoviesViewerTests.swift */; };
@@ -71,6 +72,7 @@
 		0778F120225E2E5900820327 /* MoviesViewerXCTestCaseBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesViewerXCTestCaseBase.swift; sourceTree = "<group>"; };
 		07B3E803225F43520038C577 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		07B3E807226066640038C577 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		07B3E809226073E80038C577 /* UIViewController+mv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+mv.swift"; sourceTree = "<group>"; };
 		07D8519E225DF86B003709E8 /* MoviesViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07D851A1225DF86B003709E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07D851A8225DF86D003709E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 		0778F0DD225E023E00820327 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				07B3E809226073E80038C577 /* UIViewController+mv.swift */,
 				0778F0DE225E023E00820327 /* XCGLogger+mv.swift */,
 				0778F11E225E2D5200820327 /* URL+mv.swift */,
 			);
@@ -487,6 +490,7 @@
 				0778F0F2225E023E00820327 /* BaseMVVMTabViewController.swift in Sources */,
 				0778F0F9225E023E00820327 /* BaseSettings.swift in Sources */,
 				07D851A2225DF86B003709E8 /* AppDelegate.swift in Sources */,
+				07B3E80A226073E80038C577 /* UIViewController+mv.swift in Sources */,
 				0778F11D225E232200820327 /* RESTManager.swift in Sources */,
 				0778F102225E1B2700820327 /* AppManagers.swift in Sources */,
 				0778F0FA225E023E00820327 /* Settings.swift in Sources */,
