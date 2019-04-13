@@ -13,12 +13,14 @@ final class MovieCell: UICollectionViewCell {
     public static let kMovieCellID = "MovieCellID"
     
     private var indicatorView: UIActivityIndicatorView!
+    var posterImage: UIImageView!
     
     //
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         backgroundColor = UIColor.blue
+        setupPosterImage()
         setupActivityIndicator()
     }
     
@@ -34,9 +36,20 @@ final class MovieCell: UICollectionViewCell {
     //
     public func setup(movie: Movie?) {
         if nil == movie {
+            posterImage.isHidden = true
             indicatorView.startAnimating()
         } else {
             indicatorView.stopAnimating()
+            posterImage.isHidden = false
+        }
+    }
+    
+    //
+    private func setupPosterImage() {
+        posterImage = UIImageView(image: nil)
+        addSubview(posterImage)
+        posterImage.snp.makeConstraints { (make) in
+            make.leading.trailing.top.bottom.equalToSuperview()
         }
     }
     

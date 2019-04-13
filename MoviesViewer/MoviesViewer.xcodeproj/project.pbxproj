@@ -31,6 +31,14 @@
 		07B3E804225F43520038C577 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B3E803225F43520038C577 /* MovieCell.swift */; };
 		07B3E808226066640038C577 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B3E807226066640038C577 /* StorageManager.swift */; };
 		07B3E80A226073E80038C577 /* UIViewController+mv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B3E809226073E80038C577 /* UIViewController+mv.swift */; };
+		07B3E80D226074B10038C577 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B3E80C226074B10038C577 /* Movie.swift */; };
+		07B3E8142261DEFD0038C577 /* MovieCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B3E8102261DEFD0038C577 /* MovieCoordinator.swift */; };
+		07B3E8152261DEFD0038C577 /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B3E8112261DEFD0038C577 /* MovieViewController.swift */; };
+		07B3E8162261DEFD0038C577 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B3E8122261DEFD0038C577 /* MovieViewModel.swift */; };
+		07B3E81A226200770038C577 /* CustomBaseControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B3E819226200770038C577 /* CustomBaseControl.swift */; };
+		07B3E81C226200AC0038C577 /* InfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B3E81B226200AC0038C577 /* InfoItem.swift */; };
+		07B3E81E226200E40038C577 /* InfoItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07B3E81D226200E40038C577 /* InfoItem.xib */; };
+		07B3E8202262298B0038C577 /* DateFormatter+mv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B3E81F2262298B0038C577 /* DateFormatter+mv.swift */; };
 		07D851A2225DF86B003709E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D851A1225DF86B003709E8 /* AppDelegate.swift */; };
 		07D851A9225DF86D003709E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07D851A8225DF86D003709E8 /* Assets.xcassets */; };
 		07D851B7225DF86D003709E8 /* MoviesViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D851B6225DF86D003709E8 /* MoviesViewerTests.swift */; };
@@ -73,6 +81,14 @@
 		07B3E803225F43520038C577 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		07B3E807226066640038C577 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		07B3E809226073E80038C577 /* UIViewController+mv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+mv.swift"; sourceTree = "<group>"; };
+		07B3E80C226074B10038C577 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		07B3E8102261DEFD0038C577 /* MovieCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCoordinator.swift; sourceTree = "<group>"; };
+		07B3E8112261DEFD0038C577 /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
+		07B3E8122261DEFD0038C577 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
+		07B3E819226200770038C577 /* CustomBaseControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomBaseControl.swift; sourceTree = "<group>"; };
+		07B3E81B226200AC0038C577 /* InfoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoItem.swift; sourceTree = "<group>"; };
+		07B3E81D226200E40038C577 /* InfoItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoItem.xib; sourceTree = "<group>"; };
+		07B3E81F2262298B0038C577 /* DateFormatter+mv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+mv.swift"; sourceTree = "<group>"; };
 		07D8519E225DF86B003709E8 /* MoviesViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07D851A1225DF86B003709E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07D851A8225DF86D003709E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -111,6 +127,7 @@
 		0778F0CB225E023E00820327 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				07B3E817226200360038C577 /* Controls */,
 				0778F0D4225E023E00820327 /* MVVM.swift */,
 				0778F0D5225E023E00820327 /* AppError.swift */,
 				0778F0D7225E023E00820327 /* MVVM */,
@@ -135,6 +152,7 @@
 				07B3E809226073E80038C577 /* UIViewController+mv.swift */,
 				0778F0DE225E023E00820327 /* XCGLogger+mv.swift */,
 				0778F11E225E2D5200820327 /* URL+mv.swift */,
+				07B3E81F2262298B0038C577 /* DateFormatter+mv.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -179,6 +197,7 @@
 		0778F0FD225E025700820327 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				07B3E80E2261DE7E0038C577 /* Movie */,
 				0778F111225E1CC700820327 /* MoviesList */,
 			);
 			path = Scenes;
@@ -193,6 +212,42 @@
 				0778F115225E1CC700820327 /* MoviesListViewModel.swift */,
 			);
 			path = MoviesList;
+			sourceTree = "<group>";
+		};
+		07B3E80B2260749D0038C577 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				07B3E80C226074B10038C577 /* Movie.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		07B3E80E2261DE7E0038C577 /* Movie */ = {
+			isa = PBXGroup;
+			children = (
+				07B3E8102261DEFD0038C577 /* MovieCoordinator.swift */,
+				07B3E8112261DEFD0038C577 /* MovieViewController.swift */,
+				07B3E8122261DEFD0038C577 /* MovieViewModel.swift */,
+			);
+			path = Movie;
+			sourceTree = "<group>";
+		};
+		07B3E817226200360038C577 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				07B3E819226200770038C577 /* CustomBaseControl.swift */,
+				07B3E818226200490038C577 /* InfoItem */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		07B3E818226200490038C577 /* InfoItem */ = {
+			isa = PBXGroup;
+			children = (
+				07B3E81B226200AC0038C577 /* InfoItem.swift */,
+				07B3E81D226200E40038C577 /* InfoItem.xib */,
+			);
+			path = InfoItem;
 			sourceTree = "<group>";
 		};
 		07D85195225DF86B003709E8 = {
@@ -218,6 +273,7 @@
 		07D851A0225DF86B003709E8 /* MoviesViewer */ = {
 			isa = PBXGroup;
 			children = (
+				07B3E80B2260749D0038C577 /* Models */,
 				0778F0FC225E025000820327 /* Misc */,
 				0778F0FB225E024700820327 /* Managers */,
 				0778F0CB225E023E00820327 /* Common */,
@@ -348,6 +404,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07B3E81E226200E40038C577 /* InfoItem.xib in Resources */,
 				07D851A9225DF86D003709E8 /* Assets.xcassets in Resources */,
 				0778F108225E1BD500820327 /* Loc.strings in Resources */,
 				0778F11B225E211C00820327 /* LaunchScreen.storyboard in Resources */,
@@ -438,12 +495,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MoviesViewer/Pods-MoviesViewer-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwiftExt/RxSwiftExt.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
 			);
@@ -452,12 +511,14 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjcExceptionBridging.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwiftExt.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
 			);
@@ -476,7 +537,11 @@
 				0778F0FF225E13AF00820327 /* AppCoordinator.swift in Sources */,
 				0778F0F4225E023E00820327 /* XCGLogger+mv.swift in Sources */,
 				0778F106225E1BA600820327 /* R.generated.swift in Sources */,
+				07B3E80D226074B10038C577 /* Movie.swift in Sources */,
+				07B3E81C226200AC0038C577 /* InfoItem.swift in Sources */,
 				0778F0EC225E023E00820327 /* MVVM.swift in Sources */,
+				07B3E8142261DEFD0038C577 /* MovieCoordinator.swift in Sources */,
+				07B3E81A226200770038C577 /* CustomBaseControl.swift in Sources */,
 				07B3E808226066640038C577 /* StorageManager.swift in Sources */,
 				0778F103225E1B2700820327 /* AppManagersConsumer.swift in Sources */,
 				0778F0ED225E023E00820327 /* AppError.swift in Sources */,
@@ -486,13 +551,16 @@
 				0778F0EF225E023E00820327 /* BaseMVVMViewController.swift in Sources */,
 				07B3E804225F43520038C577 /* MovieCell.swift in Sources */,
 				0778F116225E1CC700820327 /* MoviesListCoordinator.swift in Sources */,
+				07B3E8202262298B0038C577 /* DateFormatter+mv.swift in Sources */,
 				0778F11F225E2D5200820327 /* URL+mv.swift in Sources */,
+				07B3E8152261DEFD0038C577 /* MovieViewController.swift in Sources */,
 				0778F0F2225E023E00820327 /* BaseMVVMTabViewController.swift in Sources */,
 				0778F0F9225E023E00820327 /* BaseSettings.swift in Sources */,
 				07D851A2225DF86B003709E8 /* AppDelegate.swift in Sources */,
 				07B3E80A226073E80038C577 /* UIViewController+mv.swift in Sources */,
 				0778F11D225E232200820327 /* RESTManager.swift in Sources */,
 				0778F102225E1B2700820327 /* AppManagers.swift in Sources */,
+				07B3E8162261DEFD0038C577 /* MovieViewModel.swift in Sources */,
 				0778F0FA225E023E00820327 /* Settings.swift in Sources */,
 				0778F0F0225E023E00820327 /* BaseMVVMViewModel.swift in Sources */,
 			);

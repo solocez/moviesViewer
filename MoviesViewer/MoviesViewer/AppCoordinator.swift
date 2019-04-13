@@ -5,7 +5,7 @@ import UIKit
 import RxSwift
 
 //
-class AppCoordinator: BaseMVVMCoordinator<Void> {
+final class AppCoordinator: BaseMVVMCoordinator<Void> {
     
     private let window: UIWindow
     

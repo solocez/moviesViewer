@@ -9,8 +9,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 import SnapKit
+import AlamofireImage
 
-class MoviesListViewController: BaseMVVMViewController<MoviesListViewModel>
+final class MoviesListViewController: BaseMVVMViewController<MoviesListViewModel>
         , UICollectionViewDataSource, UICollectionViewDataSourcePrefetching {
     
     private var collectionView: UICollectionView!
@@ -38,8 +39,13 @@ class MoviesListViewController: BaseMVVMViewController<MoviesListViewModel>
             }).disposed(by: bag)
         
         viewModel.output.reloadData.drive(onNext: { [unowned self] indexesToReload in
+            Log.debug("UPDATING INDEXES \(indexesToReload)")
+            //self.collectionView.reloadData()
+            //TODO
             let tmp = indexesToReload.map { IndexPath(row: $0, section: 0) }
-            self.collectionView.reloadItems(at: self.cellsToReload(intersecting: tmp))
+            let toReloadIndexes = self.cellsToReload(intersecting: tmp)
+            guard !toReloadIndexes.isEmpty else { return }
+            self.collectionView.reloadItems(at: toReloadIndexes)
         }).disposed(by: bag)
         
         viewModel.input.fetchMovies.onNext([])
@@ -63,6 +69,11 @@ class MoviesListViewController: BaseMVVMViewController<MoviesListViewModel>
         collectionView.snp.makeConstraints { (make) in
             make.leading.trailing.top.bottom.equalToSuperview()
         }
+        
+        collectionView.rx.itemSelected.subscribe(onNext: { [unowned self] (ip) in
+            Log.debug("\(ip.row) ITEM SELECTED")
+            self.viewModel.input.movieSelected.onNext(ip.row)
+        }).disposed(by: bag)
     }
     
     //
@@ -88,7 +99,10 @@ class MoviesListViewController: BaseMVVMViewController<MoviesListViewModel>
     //
     private func cellsToReload(intersecting indexPaths: [IndexPath]) -> [IndexPath] {
         let ipVisibleCells = collectionView.indexPathsForVisibleItems
-        return Array(Set(ipVisibleCells).intersection(indexPaths))
+        Log.debug("VISIBLE ITEMS \(ipVisibleCells)")
+        let result = Array(Set(ipVisibleCells).intersection(indexPaths))
+        Log.debug("UPDATING VISIBLE ITEMS \(result)")
+        return result
     }
 }
 
@@ -100,7 +114,14 @@ extension MoviesListViewController {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCell.kMovieCellID, for: indexPath) as! MovieCell
-        cell.setup(movie: viewModel.output.movieBy(index: indexPath.row))
+        let movie = viewModel.output.movieBy(index: indexPath.row)
+        cell.setup(movie: movie)
+        if let movie2 = movie {
+            if let posterURL = movie2.posterURL() {
+                cell.posterImage.af_setImage(withURL: posterURL, placeholderImage: R.image.posterPlaceholder())
+            }
+        }
+
         return cell
     }
 

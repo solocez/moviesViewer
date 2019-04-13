@@ -5,42 +5,14 @@ import Foundation
 import Alamofire
 import RxSwift
 
-struct Movies: Decodable {
-    let results: [Movie]
-    let page: Int
-    let totalResults: Int
-    
-    enum CodingKeys : String, CodingKey {
-        case results
-        case page
-        case totalResults = "total_results"
-    }
-}
-
-//
-struct Movie: Decodable {
-    let id: Int
-    let title: String
-    let posterPath: String
-    let overview: String
-    var posterImage: Data?
-    
-    enum CodingKeys : String, CodingKey {
-        case id
-        case title
-        case posterPath = "poster_path"
-        case overview
-    }
-}
-
 //
 protocol RESTManager {
     func nowPlaying(page: Int) -> Single<Movies>
-    func downloadPoster(for movie: Movie) -> Single<UIImage>
+    func downloadPoster(for movie: Movie) -> Single<Movie>
 }
 
 //
-class RESTManagerImpl: RESTManager {
+final class RESTManagerImpl: RESTManager {
     
     private let kItemsPerPage: Int = 20
     private let networkQueue = DispatchQueue(label: "com.solocez.api.network", qos: .background, attributes: .concurrent)
@@ -82,9 +54,9 @@ class RESTManagerImpl: RESTManager {
         })
     }
     
-    //
-    func downloadPoster(for movie: Movie) -> Single<UIImage> {
-        return Single<UIImage>.create(subscribe: { [unowned self] (observer) in
+    //TODO: is it used?
+    func downloadPoster(for movie: Movie) -> Single<Movie> {
+        return Single<Movie>.create(subscribe: { [unowned self] (observer) in
             guard let url = self.constructPosterUrl(for: movie) else {
                 observer(.error(AppError(title: R.string.loc.error(), description: "FAILED TO CONSTRUCT URL REQUEST", code: 1)))
                 return Disposables.create()
@@ -92,7 +64,7 @@ class RESTManagerImpl: RESTManager {
             Log.debug("RETRIEVING PHOTO: \(url.absoluteString)")
             Alamofire.request(url, method: .get)
                 .validate()
-                .responseJSON(queue: self.networkQueue) { response in
+                .responseData(queue: self.networkQueue) { response in
                     guard response.result.isSuccess else {
                         observer(.error(AppError(title: R.string.loc.error(), description: "ALL COUNTRIES REQUEST FAILURE", code: 5)))
                         return
@@ -103,12 +75,14 @@ class RESTManagerImpl: RESTManager {
                         return
                     }
                     
-                    guard let img = UIImage(data: data) else {
-                        observer(.error(AppError(title: R.string.loc.error(), description: "FAILED CREATING IMAGE", code: 7)))
-                        return
-                    }
-                    
-                    observer(.success(img))
+//                    let result = Movie(id: movie.id
+//                        , title: movie.title
+//                        , posterPath: movie.posterPath
+//                        , overview: movie.overview
+//                        , posterImage: data)
+//
+//                    observer(.success(result))
+                    observer(.success(Movie.fake))
             }
             return Disposables.create()
         })

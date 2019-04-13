@@ -16,6 +16,37 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
+  /// This `R.image` struct is generated, and contains static references to 1 images.
+  struct image {
+    /// Image `posterPlaceholder`.
+    static let posterPlaceholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "posterPlaceholder")
+    
+    /// `UIImage(named: "posterPlaceholder", bundle: ..., traitCollection: ...)`
+    static func posterPlaceholder(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.posterPlaceholder, compatibleWith: traitCollection)
+    }
+    
+    fileprivate init() {}
+  }
+  
+  /// This `R.nib` struct is generated, and contains static references to 1 nibs.
+  struct nib {
+    /// Nib `InfoItem`.
+    static let infoItem = _R.nib._InfoItem()
+    
+    /// `UINib(name: "InfoItem", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.infoItem) instead")
+    static func infoItem(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.infoItem)
+    }
+    
+    static func infoItem(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.infoItem.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+    
+    fileprivate init() {}
+  }
+  
   /// This `R.storyboard` struct is generated, and contains static references to 1 storyboards.
   struct storyboard {
     /// Storyboard `LaunchScreen`.
@@ -112,6 +143,21 @@ struct R: Rswift.Validatable {
 struct _R: Rswift.Validatable {
   static func validate() throws {
     try storyboard.validate()
+  }
+  
+  struct nib {
+    struct _InfoItem: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "InfoItem"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+      
+      fileprivate init() {}
+    }
+    
+    fileprivate init() {}
   }
   
   struct storyboard: Rswift.Validatable {

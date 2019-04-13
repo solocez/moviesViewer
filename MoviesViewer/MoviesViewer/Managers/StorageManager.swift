@@ -18,7 +18,7 @@ protocol Storage {
 }
 
 //
-class StorageImpl: Storage {
+final class StorageImpl: Storage {
     
     //
     init() {
@@ -81,9 +81,12 @@ class StorageImpl: Storage {
     //
     private func mapToUnmanaged(_ item: MovieManaged) -> Movie {
         let result = Movie(id: item.id
+            , voteAverage: item.voteAverage
+            , popularity: item.popularity
             , title: item.title
             , posterPath: item.posterPath
             , overview: item.overview
+            , releaseDate: DateFormatter.releaseDateRecord().string(from: item.releaseDate)
             , posterImage: item.posterImage
         )
         return result
@@ -92,9 +95,12 @@ class StorageImpl: Storage {
     private func mapToManaged(_ movie: Movie) -> MovieManaged {
         let result = MovieManaged()
         result.id = movie.id
+        result.voteAverage = movie.voteAverage
+        result.popularity = movie.popularity
         result.title = movie.title
         result.overview = movie.overview
         result.posterPath = movie.posterPath
+        result.releaseDate = DateFormatter.releaseDateRecord().date(from: movie.releaseDate) ?? Date()
         result.posterImage = movie.posterImage ?? Data()
         return result
     }
@@ -103,9 +109,12 @@ class StorageImpl: Storage {
 //
 class MovieManaged: Object {
     @objc dynamic var id: Int = 0
+    @objc dynamic var voteAverage: Double = 0.0
+    @objc dynamic var popularity: Double = 0.0
     @objc dynamic var title: String = ""
     @objc dynamic var posterPath: String = ""
     @objc dynamic var overview: String = ""
+    @objc dynamic var releaseDate: Date = Date()
     @objc dynamic var posterImage: Data = Data()
     
     override static func primaryKey() -> String? {

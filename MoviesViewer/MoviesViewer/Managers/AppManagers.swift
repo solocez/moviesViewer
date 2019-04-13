@@ -10,7 +10,7 @@ protocol AppManagers: class {
 }
 
 //
-class AppManagersImpl: AppManagers {
+final class AppManagersImpl: AppManagers {
     private lazy var _rest: RESTManager = RESTManagerImpl()
     private lazy var _storage: Storage = StorageImpl()
     
