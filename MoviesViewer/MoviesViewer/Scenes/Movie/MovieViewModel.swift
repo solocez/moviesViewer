@@ -16,25 +16,20 @@ final class MovieViewModel: BaseMVVMViewModel {
     
     // MARK: - Inputs
     struct Input {
-        let observerOfSomething: AnyObserver<String>
+        
     }
     
     // MARK: - Outputs
     struct Output {
         let movie: Movie
-        let didObserverOfSomething: Driver<String>
     }
     
     //
     public init(movie: Movie) {
-        
         super.init()
         
-        let _variableToControl = PublishSubject<String>()
-        
-        input = Input(observerOfSomething: _variableToControl.asObserver())
-        output = Output(movie: movie
-            , didObserverOfSomething: _variableToControl.asDriver(onErrorJustReturn: ""))
+        input = Input()
+        output = Output(movie: movie)
     }
 }
 

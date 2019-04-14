@@ -11,6 +11,7 @@ import RxSwift
 enum MoviesListCoordinatorResult {
 }
 
+//
 class MoviesListCoordinator: BaseMVVMCoordinator<MoviesListCoordinatorResult> {
     
     private let window: UIWindow
