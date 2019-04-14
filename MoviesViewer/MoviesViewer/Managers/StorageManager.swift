@@ -11,12 +11,8 @@ import RealmSwift
 
 //
 protocol Storage {
-    func addMovie(_ movie: Movie)
     func addMovies(_ movies: [Movie])
     func remove(_ movie: Movie)
-    func movies() -> [Movie]
-    func searchBy(id: Int) -> Movie?
-    
     func fetch(count items: Int, starting from: Int) -> [Movie]
     func moviesCount() -> Int
     func movieAt(_ idx: Int) -> Movie?
@@ -27,29 +23,6 @@ final class StorageImpl: Storage {
     
     //
     init() {
-    }
-    
-    //
-    func addMovie(_ movie: Movie) {
-        let database = try! Realm()
-        if let item = database.objects(MovieManaged.self).filter("id = %@", movie.id).first {
-            try! database.write {
-                item.id = movie.id
-                item.voteAverage = movie.voteAverage
-                item.popularity = movie.popularity
-                item.title = movie.title
-                item.posterPath = movie.posterPath
-                item.overview = movie.overview
-                if let newDate = DateFormatter.releaseDateRecord().date(from: movie.releaseDate) {
-                    item.releaseDate = newDate
-                }
-            }
-        } else {
-            let managed = mapToManaged(movie)
-            try! database.write {
-                database.add(managed)
-            }
-        }
     }
     
     //
@@ -98,26 +71,7 @@ final class StorageImpl: Storage {
             Log.warning("CAN'T FIND ITEM \(movie.id) \(movie.title)")
         }
     }
-    
-    //
-    func movies() -> [Movie] {
-        var result: [Movie] = []
-        let database = try! Realm()
-        database.objects(MovieManaged.self).forEach { (managed) in
-            result.append(mapToUnmanaged(managed))
-        }
-        return result
-    }
-    
-    //
-    func searchBy(id: Int) -> Movie? {
-        let database = try! Realm()
-        if let item = database.objects(MovieManaged.self).filter("id = %@", id).first {
-            return mapToUnmanaged(item)
-        }
-        return nil
-    }
-    
+
     //
     func fetch(count items: Int, starting from: Int) -> [Movie] {
         var result: [Movie] = []

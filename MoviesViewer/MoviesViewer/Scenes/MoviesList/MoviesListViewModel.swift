@@ -107,7 +107,7 @@ extension MoviesListViewModel {
                 Log.debug("FETCHED \(movies.count) OF MOVIES FOR PAGE \(self.lastFetchedPage) FROM STORAGE")
                 
                 // Pagination is "1" based - not zero based.
-                // That's why "aligning" here subtracting one
+                // That's why "aligning" here - subtracting one
                 let startIdx = (self.lastFetchedPage - 1) * Settings().itemsPerPage
                 let endIdx = startIdx + movies.count
                 

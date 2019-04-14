@@ -17,6 +17,7 @@ final class MovieViewController: BaseMVVMViewController<MovieViewModel> {
     static let padding: CGFloat = 20.0
     
     // MARK: Outlets
+    private let scrollView = UIScrollView(frame: .zero)
     private let contentPanel = UIView(frame: .zero)
     private let posterImageView = UIImageView(frame: .zero)
     
@@ -31,6 +32,17 @@ final class MovieViewController: BaseMVVMViewController<MovieViewModel> {
     
     // MARK: Object lifecycle
     
+    override func updateViewConstraints() {
+        super.updateViewConstraints()
+        setupPoster()
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        view.setNeedsUpdateConstraints()
+        posterImageView.setNeedsUpdateConstraints()
+    }
+    
     // MARK: Setup
     
     //
@@ -43,13 +55,14 @@ final class MovieViewController: BaseMVVMViewController<MovieViewModel> {
         backButton.tintColor = UIColor.gray
         navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         
+        setupScrollView()
         setupContentPanel()
         setupPoster()
         setupInfoItems()
         setupTitle()
         setupDelimeter(delimeter: delimeter, topNeighbourVIew: titleLbl)
         setupOverview()
-        setupDelimeter(delimeter: delimeter2, topNeighbourVIew: overviewLbl)
+        setupDelimeter(delimeter: delimeter2, topNeighbourVIew: overviewLbl, bindScroll: true)
     }
     
     //
@@ -72,6 +85,7 @@ final class MovieViewController: BaseMVVMViewController<MovieViewModel> {
 
 //
 extension MovieViewController {
+    
     //
     private func setupOverview() {
         contentPanel.addSubview(overviewLbl)
@@ -86,13 +100,16 @@ extension MovieViewController {
     }
     
     //
-    private func setupDelimeter(delimeter: UIView, topNeighbourVIew: UIView) {
+    private func setupDelimeter(delimeter: UIView, topNeighbourVIew: UIView, bindScroll: Bool = false) {
         contentPanel.addSubview(delimeter)
         delimeter.backgroundColor = UIColor.gray
         delimeter.snp.makeConstraints { (make) in
             make.leading.trailing.equalToSuperview()
             make.top.equalTo(topNeighbourVIew.snp.bottom).inset(0 - MovieViewController.padding * 2)
             make.height.equalTo(2)
+            if bindScroll {
+                make.bottom.equalTo(contentPanel.snp.bottom)
+            }
         }
     }
     
@@ -145,10 +162,16 @@ extension MovieViewController {
     //
     private func setupPoster() {
         contentPanel.addSubview(posterImageView)
-        posterImageView.snp.makeConstraints { (make) in
-            make.leading.top.equalToSuperview()
-            make.width.equalTo(view.frame.width / 2.3)
-            make.height.equalTo(view.frame.height / 3)
+        posterImageView.snp.remakeConstraints { (make) in
+            if UIDevice.current.orientation.isLandscape {
+                make.leading.top.equalToSuperview()
+                make.width.equalTo(view.frame.width / 4)
+                make.height.equalTo(view.frame.height / 4 * 3)
+            } else {
+                make.leading.top.equalToSuperview()
+                make.width.equalTo(view.frame.width / 2.3)
+                make.height.equalTo(view.frame.height / 3)
+            }
         }
         
         if let posterURL = viewModel.output.movie.posterURL() {
@@ -157,13 +180,22 @@ extension MovieViewController {
     }
     
     //
+    private func setupScrollView() {
+        view.addSubview(scrollView)
+        scrollView.snp.makeConstraints { (make) in
+            make.leading.top.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
+    }
+    
+    //
     private func setupContentPanel() {
         contentPanel.backgroundColor = MovieViewController.background
-        view.addSubview(contentPanel)
+        scrollView.addSubview(contentPanel)
         contentPanel.snp.makeConstraints { (make) in
             make.trailing.bottom.equalToSuperview()
+            make.top.equalToSuperview().inset(MovieViewController.padding)
             make.leading.equalToSuperview().inset(MovieViewController.padding)
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(MovieViewController.padding)
+            make.width.equalToSuperview().inset(MovieViewController.padding)
         }
     }
 }
