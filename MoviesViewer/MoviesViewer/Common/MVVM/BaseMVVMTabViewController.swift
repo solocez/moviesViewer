@@ -11,7 +11,7 @@ class BaseMVVMTabViewController<Model: BaseMVVMViewModel>: UITabBarController {
     internal let bag = DisposeBag()
     
     deinit {
-        Log.debug("DESTROYING \(String(describing: type(of: self)))")
+        //Log.debug("DESTROYING \(String(describing: type(of: self)))")
     }
     
     // MARK: Object lifecycle

@@ -13,7 +13,7 @@ import AlamofireImage
 //
 final class MovieViewController: BaseMVVMViewController<MovieViewModel> {
     
-    static let background = UIColor.green
+    static let background = Settings().backgroundColor
     static let padding: CGFloat = 20.0
     
     // MARK: Outlets
@@ -25,6 +25,9 @@ final class MovieViewController: BaseMVVMViewController<MovieViewModel> {
     private let releaseDate = InfoItem(frame: .zero)
     
     private let titleLbl = UILabel(frame: .zero)
+    private let delimeter = UIView(frame: .zero)
+    private let overviewLbl = UILabel(frame: .zero)
+    private let delimeter2 = UIView(frame: .zero)
     
     // MARK: Object lifecycle
     
@@ -32,11 +35,21 @@ final class MovieViewController: BaseMVVMViewController<MovieViewModel> {
     
     //
     override func setupUI() {
-        view.backgroundColor = UIColor.red
+        title = viewModel.output.movie.title
+        view.backgroundColor = MovieViewController.background
+        
+        let backButton = UIBarButtonItem()
+        backButton.title = "Back"
+        backButton.tintColor = UIColor.gray
+        navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        
         setupContentPanel()
         setupPoster()
         setupInfoItems()
         setupTitle()
+        setupDelimeter(delimeter: delimeter, topNeighbourVIew: titleLbl)
+        setupOverview()
+        setupDelimeter(delimeter: delimeter2, topNeighbourVIew: overviewLbl)
     }
     
     //
@@ -53,11 +66,36 @@ final class MovieViewController: BaseMVVMViewController<MovieViewModel> {
         }
         
         titleLbl.text = viewModel.output.movie.title
+        overviewLbl.text = viewModel.output.movie.overview
     }
 }
 
 //
 extension MovieViewController {
+    //
+    private func setupOverview() {
+        contentPanel.addSubview(overviewLbl)
+        overviewLbl.numberOfLines = 0
+        overviewLbl.font = UIFont.systemFont(ofSize: 18.0)
+        overviewLbl.textColor = UIColor.white
+        overviewLbl.textAlignment = .natural
+        overviewLbl.snp.makeConstraints { (make) in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(delimeter.snp.bottom).inset(0 - MovieViewController.padding * 2)
+        }
+    }
+    
+    //
+    private func setupDelimeter(delimeter: UIView, topNeighbourVIew: UIView) {
+        contentPanel.addSubview(delimeter)
+        delimeter.backgroundColor = UIColor.gray
+        delimeter.snp.makeConstraints { (make) in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(topNeighbourVIew.snp.bottom).inset(0 - MovieViewController.padding * 2)
+            make.height.equalTo(2)
+        }
+    }
+    
     //
     private func setupTitle() {
         contentPanel.addSubview(titleLbl)
@@ -120,7 +158,7 @@ extension MovieViewController {
     
     //
     private func setupContentPanel() {
-        contentPanel.backgroundColor = UIColor.yellow
+        contentPanel.backgroundColor = MovieViewController.background
         view.addSubview(contentPanel)
         contentPanel.snp.makeConstraints { (make) in
             make.trailing.bottom.equalToSuperview()

@@ -23,7 +23,7 @@ struct Movies: Decodable {
 //
 struct Movie: Decodable {
     
-    public static let fake = Movie(id: -1, voteAverage: 0.0, popularity: 0.0, title: "", posterPath: "", overview: "", releaseDate: "", posterImage: nil)
+    public static let fake = Movie(id: -1, voteAverage: 0.0, popularity: 0.0, title: "", posterPath: "", overview: "", releaseDate: "")
     
     let id: Int
     let voteAverage: Double
@@ -32,8 +32,6 @@ struct Movie: Decodable {
     let posterPath: String
     let overview: String
     let releaseDate: String
-    // TODO: maybe remove this field
-    var posterImage: Data?
     
     enum CodingKeys : String, CodingKey {
         case id
@@ -46,13 +44,15 @@ struct Movie: Decodable {
     }
 }
 
+//
 extension Movie {
+    //
     func posterURL() -> URL? {
         guard let url = URL(string: Settings().PosterEndpoint + posterPath) else {
             Log.error("FAILED CREATING POSTER URL")
             return nil
         }
-        
+
         return url
     }
 }

@@ -12,8 +12,6 @@ import UIKit
 protocol InfoItemControl {
     var title: String? { get set }
     var data: String? { get set }
-    
-    //var backgroundColor: UIColor { set }
 }
 
 //

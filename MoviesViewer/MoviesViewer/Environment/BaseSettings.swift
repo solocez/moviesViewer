@@ -13,6 +13,9 @@ protocol BaseSettings {
     var RESTEndpoint: String { get }
     var PosterEndpoint: String { get }
     var apiKey: String { get }
+    var itemsPerPage: Int { get }
+    
+    var backgroundColor: UIColor { get }
 }
 
 extension BaseSettings {
@@ -47,6 +50,14 @@ extension BaseSettings {
         get {
             return "ebea8cfca72fdff8d2624ad7bbf78e4c"
         }
+    }
+    
+    var itemsPerPage: Int {
+        return 20
+    }
+    
+    var backgroundColor: UIColor {
+        return UIColor.init(red: 85 / 255.0, green: 102 / 255.0, blue: 127 / 255.0, alpha: 1.0)
     }
 }
 

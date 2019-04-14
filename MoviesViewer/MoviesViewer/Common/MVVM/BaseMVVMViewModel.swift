@@ -19,7 +19,7 @@ class BaseMVVMViewModel {
     }
     
     deinit {
-        Log.debug("DESTROYING \(String(describing: type(of: self)))")
+        //Log.debug("DESTROYING \(String(describing: type(of: self)))")
     }
 }
 

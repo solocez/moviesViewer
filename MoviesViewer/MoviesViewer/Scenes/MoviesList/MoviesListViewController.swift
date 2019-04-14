@@ -11,6 +11,7 @@ import RxCocoa
 import SnapKit
 import AlamofireImage
 
+//
 final class MoviesListViewController: BaseMVVMViewController<MoviesListViewModel>
         , UICollectionViewDataSource, UICollectionViewDataSourcePrefetching {
     
@@ -23,7 +24,8 @@ final class MoviesListViewController: BaseMVVMViewController<MoviesListViewModel
     
     //
     override func setupUI() {
-        view.backgroundColor = UIColor.gray
+        title = "Latest Movies"
+        view.backgroundColor = Settings().backgroundColor
         setupMoviesCollection()
         setupActivityIndicator()
         startActivity()
@@ -39,9 +41,6 @@ final class MoviesListViewController: BaseMVVMViewController<MoviesListViewModel
             }).disposed(by: bag)
         
         viewModel.output.reloadData.drive(onNext: { [unowned self] indexesToReload in
-            Log.debug("UPDATING INDEXES \(indexesToReload)")
-            //self.collectionView.reloadData()
-            //TODO
             let tmp = indexesToReload.map { IndexPath(row: $0, section: 0) }
             let toReloadIndexes = self.cellsToReload(intersecting: tmp)
             guard !toReloadIndexes.isEmpty else { return }
@@ -61,17 +60,18 @@ final class MoviesListViewController: BaseMVVMViewController<MoviesListViewModel
         layout.scrollDirection = .vertical
         //layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = UIColor.yellow
+        collectionView.backgroundColor = Settings().backgroundColor
         collectionView.dataSource = self
         collectionView.prefetchDataSource = self
         collectionView.register(MovieCell.self, forCellWithReuseIdentifier: MovieCell.kMovieCellID)
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { (make) in
-            make.leading.trailing.top.bottom.equalToSuperview()
+            make.top.bottom.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(5.0)
         }
         
         collectionView.rx.itemSelected.subscribe(onNext: { [unowned self] (ip) in
-            Log.debug("\(ip.row) ITEM SELECTED")
+            Log.debug("ITEM \(ip.row) SELECTED")
             self.viewModel.input.movieSelected.onNext(ip.row)
         }).disposed(by: bag)
     }
@@ -99,41 +99,42 @@ final class MoviesListViewController: BaseMVVMViewController<MoviesListViewModel
     //
     private func cellsToReload(intersecting indexPaths: [IndexPath]) -> [IndexPath] {
         let ipVisibleCells = collectionView.indexPathsForVisibleItems
-        Log.debug("VISIBLE ITEMS \(ipVisibleCells)")
         let result = Array(Set(ipVisibleCells).intersection(indexPaths))
-        Log.debug("UPDATING VISIBLE ITEMS \(result)")
         return result
     }
 }
 
 // UICollectionViewDataSource
 extension MoviesListViewController {
+    //
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.output.moviesTotal
     }
     
+    //
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCell.kMovieCellID, for: indexPath) as! MovieCell
-        let movie = viewModel.output.movieBy(index: indexPath.row)
+        let movie = viewModel.movieBy(index: indexPath.row)
         cell.setup(movie: movie)
-        if let movie2 = movie {
-            if let posterURL = movie2.posterURL() {
+        if nil != movie {
+            if let posterURL = movie!.posterURL() {
                 cell.posterImage.af_setImage(withURL: posterURL, placeholderImage: R.image.posterPlaceholder())
             }
         }
 
         return cell
     }
-
 }
 
 // UICollectionViewDataSourcePrefetching
 extension MoviesListViewController {
+    //
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         let indexes = indexPaths.map { $0.row }
         viewModel.input.fetchMovies.onNext(indexes)
     }
     
+    //
     func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
         
     }
